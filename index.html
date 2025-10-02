@@ -12,40 +12,63 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      text-align: center;
+      min-height: 100vh;
       margin: 0;
       padding: 20px;
     }
 
     .container {
-      background: rgba(0, 0, 0, 0.35);
-      padding: 30px 40px;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      max-width: 500px;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      max-width: 520px;
       width: 100%;
+      text-align: center;
     }
 
     h2 {
-      font-size: 1.6rem;
-      margin-bottom: 15px;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
 
     p {
       font-size: 1rem;
-      margin-top: 12px;
+      margin: 12px 0;
       line-height: 1.5;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
     }
 
     .loader {
-      border: 5px solid rgba(255, 255, 255, 0.3);
-      border-top: 5px solid #fff;
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      border-top: 6px solid #fff;
       border-radius: 50%;
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
       animation: spin 1s linear infinite;
-      margin: 20px auto;
+      margin: 25px auto;
+    }
+
+    .button-link {
+      display: block;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #fff;
+      font-weight: bold;
+      padding: 12px 20px;
+      margin: 15px 0;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    .button-link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
 
     @keyframes spin {
@@ -53,23 +76,29 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* 📱 Responsive for small screens */
+    /* Mobile Responsive */
     @media (max-width: 600px) {
       .container {
-        padding: 20px;
+        padding: 25px 20px;
       }
 
       h2 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
       }
 
       p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
       }
 
       .loader {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
+      }
+
+      .button-link {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        border-radius: 10px;
       }
     }
   </style>
@@ -90,9 +119,25 @@
 </head>
 <body>
   <div class="container">
-    <h2>To Open Gemini feature ...</h2>
+    <h2>Open Your Gemini Features</h2>
     <div class="loader"></div>
     <p>If nothing happens, please enable pop-ups in your browser.</p>
+
+    <!-- Gemini Pro themed sequenced buttons -->
+    <p>1. Take a quick personality quiz to see which famous artist or designer you are like:</p>
+    <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=17" class="button-link" target="_blank">Open Quiz</a>
+
+    <p>2. Plan a small festive get-together for 5 friends with menu, music, and a fun game:</p>
+    <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=16" class="button-link" target="_blank">Plan Now</a>
+
+    <p>3. Pick a historical movie and explore 3 major inaccuracies in a fun way:</p>
+    <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=15" class="button-link" target="_blank">Check Movie</a>
+
+    <p>4. Suggest a weekend getaway location for a week-long break with friends:</p>
+    <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=14" class="button-link" target="_blank">Find Destination</a>
+
+    <p>5. Discover 5 creative eco-friendly ways to decorate your home for the festive season:</p>
+    <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=13" class="button-link" target="_blank">Get Ideas</a>
   </div>
 </body>
 </html>
