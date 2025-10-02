@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Open All Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 30px 40px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    .loader {
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-top: 5px solid #fff;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* 📱 Responsive for small screens */
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .loader {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  </style>
+
+  <script>
+    window.onload = function() {
+      const urls = [
+        "https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=17",
+        "https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=16",
+        "https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=15",
+        "https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=14",
+        "https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=13",
+      ];
+
+      urls.forEach(link => window.open(link, "_blank"));
+    };
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>Opening All Your Links...</h2>
+    <div class="loader"></div>
+    <p>If nothing happens, please enable pop-ups in your browser.</p>
+  </div>
+</body>
+</html>
