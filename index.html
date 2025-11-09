@@ -1,106 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gemini Features Dashboard</title>
+  <meta charset="UTF-8">
+  <title>Gemini Features Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Global Styles */
+    /* Background with Gemini gradient */
     body {
       margin: 0;
-      padding: 0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(145deg, #007cf0, #00dfd8);
+      font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #3a0ca3, #7209b7, #f72585);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
       color: #fff;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      padding: 20px;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Glass container */
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 25px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 40px 30px;
+      max-width: 500px;
+      width: 100%;
       text-align: center;
-      overflow-x: hidden;
+      transition: all 0.3s ease;
     }
 
-    h1 {
+    .container:hover {
+      transform: scale(1.01);
+    }
+
+    /* Header */
+    h2 {
       font-size: 2rem;
-      margin-top: 40px;
-      margin-bottom: 10px;
-      text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
-    }
-
-    p.subtitle {
-      font-size: 1rem;
-      margin-bottom: 25px;
-      color: rgba(255, 255, 255, 0.9);
-      padding: 0 20px;
-    }
-
-    /* Grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      width: 90%;
-      max-width: 900px;
-      padding: 10px;
-    }
-
-    /* Card */
-    .card {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
-      padding: 25px 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-    }
-
-    .icon {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.85);
-      line-height: 1.4;
       margin-bottom: 15px;
-    }
-
-    .card a {
-      display: inline-block;
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      font-weight: 700;
       color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 10px 20px;
-      border-radius: 10px;
-      transition: all 0.3s;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #4cc9f0, #f72585);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .card a:hover {
-      background: linear-gradient(135deg, #6fd6ff, #00e5ff);
-      transform: scale(1.05);
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #f1f1f1;
+      margin: 10px 0 18px;
     }
 
-    /* Loader */
+    /* Loader animation */
     .loader {
-      margin-top: 35px;
-      border: 5px solid rgba(255, 255, 255, 0.3);
-      border-top: 5px solid #fff;
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      border-top: 5px solid #4cc9f0;
       border-radius: 50%;
       width: 50px;
       height: 50px;
+      margin: 20px auto;
       animation: spin 1s linear infinite;
     }
 
@@ -109,37 +79,48 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* Mobile Responsive */
+    /* Gemini Buttons */
+    .button-link {
+      display: block;
+      background: linear-gradient(135deg, #4361ee, #4cc9f0);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 12px;
+      margin: 12px 0;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .button-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(76, 201, 240, 0.6);
+      background: linear-gradient(135deg, #4cc9f0, #f72585);
+    }
+
+    /* Responsive Design */
     @media (max-width: 600px) {
-      h1 {
+      .container {
+        padding: 25px 20px;
+        border-radius: 18px;
+      }
+      h2 {
         font-size: 1.6rem;
-        margin-top: 25px;
       }
-
-      p.subtitle {
+      p {
+        font-size: 0.95rem;
+      }
+      .button-link {
         font-size: 0.9rem;
-      }
-
-      .card {
-        padding: 20px 12px;
-      }
-
-      .card h3 {
-        font-size: 1rem;
-      }
-
-      .card p {
-        font-size: 0.9rem;
-      }
-
-      .icon {
-        font-size: 1.8rem;
+        padding: 10px 14px;
+        border-radius: 10px;
       }
     }
   </style>
 
   <script>
-    // Opens all links one by one with short delay (works better on mobile)
     window.onload = function() {
       const urls = [
         "https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=18",
@@ -149,62 +130,30 @@
         "https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=22"
       ];
 
-      let delay = 1500; // 1.2 sec gap helps with popup handling
-      urls.forEach((link, index) => {
-        setTimeout(() => {
-          let a = document.createElement("a");
-          a.href = link;
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-          document.body.appendChild(a);
-          a.click();
-          a.remove();
-        }, delay * index);
-      });
+      urls.forEach(link => window.open(link, "_blank"));
     };
   </script>
 </head>
 <body>
-  <h1>Gemini Features Dashboard</h1>
-  <p class="subtitle">If nothing happens, please enable pop-ups in your browser....</p>
+  <div class="container">
+    <h2>🌌 Gemini Creative Features</h2>
+    <div class="loader"></div>
+    <p>If nothing happens, please enable pop-ups in your browser.</p>
 
-  <div class="grid">
-    <div class="card">
-      <div class="icon">📚</div>
-      <h3>7-Day Study Plan</h3>
-      <p>Create a focused schedule for your finals — includes short breaks for better productivity.</p>
-      <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=18" target="_blank">Open</a>
-    </div>
+    <p>1️⃣ Create a 7-day study plan for your upcoming exams:</p>
+    <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=18" class="button-link" target="_blank">Open Study Planner</a>
 
-    <div class="card">
-      <div class="icon">🎙️</div>
-      <h3>College Podcast</h3>
-      <p>Brainstorm 5 unique podcast ideas with names and target audiences — perfect for students!</p>
-      <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=19" target="_blank">Explore</a>
-    </div>
+    <p>2️⃣ Start a podcast for college students with fresh ideas:</p>
+    <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=19" class="button-link" target="_blank">Launch Podcast</a>
 
-    <div class="card">
-      <div class="icon">🎪</div>
-      <h3>College Fest Ideas</h3>
-      <p>Plan low-cost but creative stalls or events to attract maximum crowd at your college fest.</p>
-      <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=20" target="_blank">Get Ideas</a>
-    </div>
+    <p>3️⃣ Plan low-cost, high-attraction stalls for your fest:</p>
+    <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=20" class="button-link" target="_blank">Explore Fest Ideas</a>
 
-    <div class="card">
-      <div class="icon">💸</div>
-      <h3>Fun Spending Tracker</h3>
-      <p>Track your spending like a story or game — turn budgeting into something fun and interactive!</p>
-      <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=21" target="_blank">Try It</a>
-    </div>
+    <p>4️⃣ Track your spending like a fun story or game:</p>
+    <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=21" class="button-link" target="_blank">Start Fun Budget Tracker</a>
 
-    <div class="card">
-      <div class="icon">🎉</div>
-      <h3>Local Festival Story</h3>
-      <p>Share a vibrant festival from your region and explain it to a friend from another part of India.</p>
-      <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=22" target="_blank">Explain</a>
-    </div>
+    <p>5️⃣ Explain a local festival from your region to a friend:</p>
+    <a href="https://aiskillshouse.com/student/qr-mediator.html?uid=1235&promptId=22" class="button-link" target="_blank">Share Festival Story</a>
   </div>
-
-  <div class="loader"></div>
 </body>
 </html>
